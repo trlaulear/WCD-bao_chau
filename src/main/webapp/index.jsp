@@ -30,6 +30,7 @@
 <body>
     <h1>Player Information</h1>
 
+    <!-- Add Player Form -->
     <form action="PlayerServlet" method="POST">
         <label for="name">Player Name:</label>
         <input type="text" name="name" required><br><br>
@@ -63,10 +64,11 @@
                 <th>Player Age</th>
                 <th>Index Name</th>
                 <th>Value</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            <!-- The list of players will be displayed here -->
+            <!-- Display list of players -->
             <%
                 List<Player> playerList = (List<Player>) request.getAttribute("playerList");
                 if (playerList != null) {
@@ -75,10 +77,16 @@
                 <tr>
                     <td><%= p.getId() %></td>
                     <td><%= p.getName() %></td>
-                    <td><%= p.getFullName() %></td>  <!-- Display Full Name -->
+                    <td><%= p.getFullName() %></td>
                     <td><%= p.getAge() %></td>
                     <td><%= p.getIndexName() %></td>
                     <td><%= p.getValue() %></td>
+                    <td>
+                        <!-- Edit Button -->
+                        <a href="PlayerServlet?action=edit&id=<%= p.getId() %>">Edit</a> |
+                        <!-- Delete Button -->
+                        <a href="PlayerServlet?action=delete&id=<%= p.getId() %>">Delete</a>
+                    </td>
                 </tr>
             <%
                     }
