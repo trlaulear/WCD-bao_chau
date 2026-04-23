@@ -34,6 +34,9 @@
         <label for="name">Player Name:</label>
         <input type="text" name="name" required><br><br>
 
+        <label for="full_name">Full Name:</label>
+        <input type="text" name="full_name" required><br><br>
+
         <label for="age">Player Age:</label>
         <input type="number" name="age" required><br><br>
 
@@ -56,6 +59,7 @@
             <tr>
                 <th>Id</th>
                 <th>Player Name</th>
+                <th>Full Name</th>
                 <th>Player Age</th>
                 <th>Index Name</th>
                 <th>Value</th>
@@ -64,7 +68,6 @@
         <tbody>
             <!-- The list of players will be displayed here -->
             <%
-                // Retrieve the playerList attribute from the request
                 List<Player> playerList = (List<Player>) request.getAttribute("playerList");
                 if (playerList != null) {
                     for (Player p : playerList) {
@@ -72,6 +75,7 @@
                 <tr>
                     <td><%= p.getId() %></td>
                     <td><%= p.getName() %></td>
+                    <td><%= p.getFullName() %></td>  <!-- Display Full Name -->
                     <td><%= p.getAge() %></td>
                     <td><%= p.getIndexName() %></td>
                     <td><%= p.getValue() %></td>

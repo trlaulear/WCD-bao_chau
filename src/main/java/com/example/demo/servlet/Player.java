@@ -3,13 +3,16 @@ package com.example.demo.servlet;
 public class Player {
     private int id;
     private String name;
+    private String fullName;  // Add full name field
     private int age;
     private String indexName;
     private float value;
 
-    public Player(int id, String name, int age, String indexName, float value) {
+    // Constructor including full name
+    public Player(int id, String name, String fullName, int age, String indexName, float value) {
         this.id = id;
         this.name = name;
+        this.fullName = fullName;  // Set full name
         this.age = age;
         this.indexName = indexName;
         this.value = value;
@@ -30,6 +33,14 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getFullName() {
+        return fullName;  // Get full name
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;  // Set full name
     }
 
     public int getAge() {
